@@ -42,11 +42,11 @@ const card = ({ card }) => {
                 </Box>
                 <Spacer />
                 {card.auction ? <Box>
-                    <Text fontSize='12px' borderRadius="10px" py='0' px='2' color='#dcdde0' border='1px' borderColor='#9f4508' fontWeight='bold'>AUCTION</Text>
+                    <Text fontSize='12px' borderRadius="10px" py='0' px='2' color='#dcdde0' border='2px' borderColor='#9f4508' fontWeight='bold'>AUCTION</Text>
                 </Box>
                     :
                     <Box>
-                        <Text fontSize='13px' borderRadius="10px" py='0' px='3' color='#dcdde0' border='1px' borderColor='#344a6a' fontWeight='bold'>SALE</Text>
+                        <Text fontSize='13px' borderRadius="10px" py='0' px='3' color='#dcdde0' border='2px' borderColor='#344a6a' fontWeight='bold'>SALE</Text>
                     </Box>
                 }
             </Flex>
@@ -84,17 +84,18 @@ const card = ({ card }) => {
                         <Text color='white' fontWeight='bold' fontSize='17px' >${card?.price}</Text>
                     </Box>}
                 <Spacer />
-                {card?.auction ? <Box border='1px' borderColor='#523d25' p='6px'>
-                    <Text color='#7aa2c8' fontSize='15px' fontWeight='bold'>AUCTION ENDS IN</Text>
-                    <Text color='white' fontWeight='bold' fontSize='18px' >3 : 19 : {time?.minutes} : {time?.seconds}s</Text>
+                {card?.auction ? <Box border='1px' borderColor='#523d25' px='7px' py='6px' position='relative'>
+                    <Text color='#7aa2c8' fontSize='15px' fontWeight='bold'>AUCTION ENDS IN </Text>
+                    <Text position='absolute' color='white' fontWeight='bold' fontSize='18px' >{time?.days} : {time?.hours} : {time?.minutes} : {time?.seconds}s</Text>
                 </Box>
                     :
                     <Box border='1px' borderColor='#523d25' p='6px'>
                         <Text color='#7aa2c8' fontSize='13px' fontWeight='bold'>FLASH DEAL ENDS IN</Text>
-                        <Text color='white' fontWeight='bold' fontSize='17px' textAlign='center'> 3 : 19 : {time?.minutes} : {time?.seconds}s</Text>
+                        <Text color='white' fontWeight='bold' fontSize='17px' textAlign='center'> {time?.days} : {time?.hours} : {time?.minutes} : {time?.seconds}s</Text>
                     </Box>
                 }
             </Flex>
+            {/* card button  */}
             {card?.auction ?
                 <Button mt='4' bg='#0075ff' border='1px' borderColor='#0076fe' p='6' w='100%' color='white' fontSize='14px' variant='solid' borderRadius='none'>
                     BID NOW
@@ -105,7 +106,6 @@ const card = ({ card }) => {
                         ADD TO CARD
                     </Button>
                     <Spacer></Spacer>
-
                     <Button bg='#0075ff' border='1px' borderColor='#0076fe' p='6' w='45%' color='white' fontSize='14px' variant='solid' borderRadius='none'>
                         BID NOW
                     </Button>
